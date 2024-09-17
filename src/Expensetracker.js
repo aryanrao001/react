@@ -1,0 +1,55 @@
+import React, { useState } from 'react'
+
+
+
+
+
+const Expensetracker = () => {
+
+    const [input,setInput] = useState('');
+    const [amount,setAmount] = useState('');
+    const [expenses,setExpenses] = useState([]); 
+    
+
+    const addExpenses = () =>{
+        if(!input || !amount) return;
+
+        const newExpense = {
+            id : expenses.length + 1,
+            title : input,
+            amount : amount
+        };
+
+        setExpenses([...expenses,newExpense])
+        setInput('');
+        setAmount('');
+    }
+
+    const deleteExpense = (id) =>{
+        setExpenses(expenses.filter((expenses)=> expenses.id !== id));
+    }
+
+  return (
+    <div>
+        <h1>Expense Tracker </h1>
+        <div>
+            <input type="text" placeholder='Expenses' value={input} onChange={(e) =>setInput(e.target.value)}/><br/>
+            <input type="number" placeholder='Amount' value={amount}  onChange={(e) =>setAmount(e.target.value)}/><br/>
+            <button onClick={addExpenses}>Add Expenses </button>
+        </div><br/>
+        <ul>
+            {
+                expenses.map((expense)=>(
+                    <li key={expense.id}>
+                        <span>{expense.title}</span>  <span>{expense.amount}</span> <button onClick={()=>deleteExpense(expense.id)}>Delete </button>
+
+                    </li>
+                ))
+            }
+        </ul>
+      
+    </div>
+  )
+}
+
+export default Expensetracker

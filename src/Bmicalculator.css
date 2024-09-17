@@ -1,0 +1,22 @@
+body{
+
+   
+}
+.Bmicalc {
+    background-color: rgb(216, 115, 135);
+    color: black;
+    width: 50vh;
+    height: 30vh;
+    text-align: center; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.outermostdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+}
